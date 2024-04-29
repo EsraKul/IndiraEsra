@@ -4,15 +4,6 @@
     font-family: 'poppins', sans-serif;
     box-sizing: border-box;
     }
-    .background-image {
-        width: 500px; /* Adjust width as needed */
-        height: 300px; /* Adjust height as needed */
-        background-image: url('images\stockhomsunset.jpg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
-        background-size: cover; /* Cover the entire background */
-        background-position: center; /* Center the background */
-        border-radius: 20px; /* Adjust border radius as needed */
-        /*border: 10px solid rgba(255, 255, 255, 0.5); /* Adjust border width and color as needed */
-    }
     .container{
         width: 100%;
         min-height: 100vh;
