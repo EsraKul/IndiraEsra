@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container"> 
-    <div class="todo-app">
-       <h2>To-Do List <img src="images/icon.png"></h2> 
-       <div class="row">
-        <input type="text" id="input-box" placeholder="Add your text">
-        <button onclick= "addTask();">Add</button>
-       </div>
-       <ul id="list-container">
-       </ul>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <div class="background-image">
+        <div class="floating-box">
+            <h1>Explore Stockholm</h1>
+            <input type="text" id="searchInput" placeholder="Enter a place...">
+            <button onclick="searchPlaces()">Search</button>
+            <div id="placesList"></div>
+        </div>
+         <!-- Buttons for categories -->
+         <div class="category-buttons">
+            <button class="upper-left" onclick="hideCategory(this)">Art</button>
+            <button class="upper-right" onclick="hideCategory(this)">History</button>
+            <button class="lower-left" onclick="hideCategory(this)">Views</button>
+            <button class="lower-right" onclick="hideCategory(this)">Restaurants</button>
+        </div>
+    </div>    
+    <script src="script.js"></script>
 </body>
 </html>

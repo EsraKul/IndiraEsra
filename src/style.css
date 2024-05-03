@@ -1,101 +1,124 @@
-*{
+/* Import the Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
     margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive; /* Example of using the "Pacifico" font for headings */
+}
+/* Add this CSS to your existing style.css file */
+
+.category-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.category-buttons button {
+    color: black;
+    font-family: 'Pacifico', cursive;
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: 500; /* Adjust font weight as needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-buttons button:hover {
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque white on hover */
+}
+
+.upper-left {
+    position: absolute;
+    top: 200px;
+    left: 350px;
+}
+
+.upper-right {
+    position: absolute;
+    top: 200px;
+    right: 350px;
+}
+
+.lower-left {
+    position: absolute;
+    bottom: 200px;
+    left: 350px;
+}
+
+.lower-right {
+    position: absolute;
+    bottom: 200px;
+    right: 350px;
+}
+
+.background-image {
+    background-image: url('../images/stockhom-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.floating-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.floating-box {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed; /* Fixed position */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the box */
+    z-index: 1; /* Ensure it's above the background image */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#placesList {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#placesList ul {
+    list-style-type: none;
     padding: 0;
-    font-family: 'poppins', sans-serif;
-    box-sizing: border-box;
-    }
-    .container{
-        width: 100%;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #153677, #4e085f);
-        padding: 10px;
-    }
-    .todo-app{
-        width: 100%;
-        max-width: 540px;
-        background: #fff;
-        margin: 100px auto 20px;
-        padding: 40px 30px 70px;
-        border-radius: 10px;
-    }
-    .todo-app h2{
-        color: #002765;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    .todo-app h2 img{
-        width: 30px;
-        margin-left: 10px;
-    }
-    .row{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background:#edeef0;
-        border-radius: 30px;
-        padding-left: 20px;
-        margin-bottom: 25px;
-    
-    }
-    input{
-        flex: 1;  /* full length */
-        border: none;
-        outline: none;
-        background: transparent;
-        padding:10px;
-    }
-    button{
-        border: none;
-        outline: none;
-        padding: 16px 50px;
-        background: #ff5945;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 40px;
-    }
-    ul li{
-        list-style: none;
-        font-size: 17px;
-        padding: 12px 8px 12px 50px;
-        user-select: none;
-        cursor: pointer;
-        position: relative;
-    }
-    ul li::before{
-        content: '';
-        position: absolute;
-        height: 28px;
-        width: 28px;
-        border-radius:50% ;
-        background-image: url(images/unchecked.png);
-        background-size: cover;
-        background-position: center;
-        top: 12px;
-        left: 8px;
-    
-    }
-    ul li.checked{
-        color: #555;
-        text-decoration:line-through; 
-    }
-    ul li.checked::before{
-        background-image: url(images/checked.png);
-    }
-    ul li span{
-        position: absolute;
-        right: 0;
-        top: 5px;
-        width: 40px;
-        height: 40px;
-        font-size: 22px;
-        color: #555;
-        line-height: 40px;
-        text-align: center;
-        border-radius: 50%;
-    }
-    ul li span:hover{
-        background: #edeef0;
-    }
+}
+
+#placesList ul li {
+    padding: 5px 0;
+}
