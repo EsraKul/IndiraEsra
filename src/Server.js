@@ -3,7 +3,7 @@ const fs = require('fs');
 const Groq = require('groq-sdk');
 const readline = require('readline');
 
-const apiKey = "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";
+const apiKey = "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"; // Replace with your Groq API key
 const groq = new Groq({ apiKey });
 
 // Create readline interface for user input
@@ -12,22 +12,48 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+// List of predefined words relevant to tourism planning
+const tourismWords = [
+    "attractions",
+    "hotels",
+    "hotel",
+    "restaurants",
+    "food",
+    "meals",
+    "history",
+    "fun",
+    "outdoor",
+    "acitivites",
+
+];
+
+// Function to validate user input against predefined words
+function validateInput(input) {
+    // Convert input to lowercase for case-insensitive comparison
+    const lowerInput = input.toLowerCase();
+    // Check if any of the predefined words are present in the input
+    return tourismWords.some(word => lowerInput.includes(word));
+}
+
 //this part basically lets you send a message to the api and get a response back. 
 async function sendMessage(message) {
     try {
-        //takes the message and returns a response. 
+        //takes the message and returns a response.
+        const messageWithFilter = `${message} create a custom tourism planning that includes these and some other things in Stockholm`; 
+
+        // Send the filtered message to the Groq API
         const response = await groq.chat.completions.create({
-            messages: [{ role: 'user', content: message }],
+            messages: [{ role: 'user', content: messageWithFilter }],
             model: 'mixtral-8x7b-32768' 
         });
 
         return response.choices[0]?.message?.content || 'No response';
-    } catch (error) { //otherwise returns an error. 
+    } catch (error) {
         return 'An error occurred';
     }
 }
 
-// This creates a new server for the website. A server is required to make the groq api work, otherwise it only works in the terminal. 
+// Create a new server for the website
 const server = http.createServer((req, res) => {
     if (req.method === 'GET' && req.url === '/') {
         fs.readFile('index.html', (err, data) => {
@@ -47,9 +73,17 @@ const server = http.createServer((req, res) => {
 
         req.on('end', async () => {
             const { message } = JSON.parse(body);
-            const response = await sendMessage(message);
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: response }));
+            // Validate user input against predefined words
+            if (validateInput(message)) {
+                // User input is valid, send message to Groq API
+                const response = await sendMessage(message);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: response }));
+            } else {
+                // Invalid input, send error response
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: "Invalid input. Please include one of the predefined words." }));
+            }
         });
     } else {
         res.writeHead(404);
@@ -60,5 +94,5 @@ const server = http.createServer((req, res) => {
 // Start server
 const PORT = 3000;
 server.listen(PORT, () => {
-    console.log(`Server running`);
+    console.log(`Server running on port ${PORT}`);
 });
