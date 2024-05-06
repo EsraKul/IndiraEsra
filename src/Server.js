@@ -6,13 +6,13 @@ const readline = require('readline');
 const apiKey = "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"; // Replace with your Groq API key
 const groq = new Groq({ apiKey });
 
-// Create readline interface for user input
+//readline interface for reading input. 
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-// List of predefined words relevant to tourism planning
+//Predetermined words, if these words are not included the search doesn't work --this is to avoid the api from returning anything but tourist things. 
 const tourismWords = [
     "attractions",
     "hotels",
@@ -38,7 +38,7 @@ function validateInput(input) {
 //this part basically lets you send a message to the api and get a response back. 
 async function sendMessage(message) {
     try {
-        //takes the message and returns a response.
+        //this puts a constraint where it adds stockholm to the search, this is to only include the scope stockholm!
         const messageWithFilter = `${message} create a custom tourism planning that includes these and some other things in Stockholm`; 
 
         // Send the filtered message to the Groq API
@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-// Start server
+// Start server.
 const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
