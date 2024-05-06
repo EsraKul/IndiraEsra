@@ -4,7 +4,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 h1 {
@@ -12,15 +12,26 @@ h1 {
 }
 
 
+
 .background-image {
     background-image: url('../images/stockhom-background.jpg'); 
     background-size: cover;
-    background-position: center;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
+    background-position: top;
+    height: 100vh; /* Set height to 50% of the viewport height */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to the top of the viewport */
+    left: 0;
+    right: 0;
+    z-index: -1; /* Move it behind other content */
+}
+.SecondTitle {
+
+
+}
+.SecondSubtitle {
+
+}
+
 
 .floating-box {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
