@@ -10,56 +10,7 @@ body, html {
 h1 {
     font-family: 'Pacifico', cursive; /* Example of using the "Pacifico" font for headings */
 }
-/* Add this CSS to your existing style.css file */
 
-.category-buttons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.category-buttons button {
-    color: black;
-    font-family: 'Pacifico', cursive;
-    font-size: 18px; /* Adjust font size as needed */
-    font-weight: 500; /* Adjust font weight as needed */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    border-color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.category-buttons button:hover {
-    background-color: rgba(255, 255, 255, 1); /* Fully opaque white on hover */
-}
-
-.upper-left {
-    position: absolute;
-    top: 200px;
-    left: 350px;
-}
-
-.upper-right {
-    position: absolute;
-    top: 200px;
-    right: 350px;
-}
-
-.lower-left {
-    position: absolute;
-    bottom: 200px;
-    left: 350px;
-}
-
-.lower-right {
-    position: absolute;
-    bottom: 200px;
-    right: 350px;
-}
 
 .background-image {
     background-image: url('../images/stockhom-background.jpg'); 
