@@ -3,7 +3,7 @@ const fs = require('fs');
 const Groq = require('groq-sdk');
 const readline = require('readline');
 
-const apiKey = "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"; // Replace with your Groq API key
+const apiKey = "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";
 const groq = new Groq({ apiKey });
 
 //readline interface for reading input. 
