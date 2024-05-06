@@ -6,13 +6,6 @@ body, html {
     margin: 0;
     font-family: 'Oswald', sans-serif;
 }
-
-h1 {
-    font-family: 'Pacifico', cursive; /* Example of using the "Pacifico" font for headings */
-}
-
-
-
 .background-image {
     background-image: url('../images/stockhom-background.jpg'); 
     background-size: cover;
@@ -25,23 +18,32 @@ h1 {
     z-index: -1; /* Move it behind other content */
 }
 .SecondTitle {
-
+    margin-top: 60 px;
+    margin-left: 50px;
+    color: white;
+    font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 35px;
+  font-style: normal;
 
 }
 .SecondSubtitle {
-
+   margin-top: -40px;
+    margin-left: 50px;
+    color: white;
+    font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-
-.floating-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
 .floating-box {
     background-color: rgba(255, 255, 255, 0.8); 
-    padding: 20px;
+    margin-top: 60px;
+    padding-top: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 200px;
     border-radius: 10px;
     text-align: center;
     position: fixed; /* Fixed position */
@@ -52,12 +54,28 @@ h1 {
     transition: transform 0.3s ease; /* Smooth transition */
 }
 
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
+.search-form input[type="text"] {
+    width: calc(100% - 120px); /* Make the input field wider */
+    padding: 15px; /* Add padding for better appearance */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-right: 10px; /* Add margin to separate from the button */
+}
+/* Adjust the search button */
+.search-form button {
+    width: 100px; /* Set width for the button */
+    padding: 15px; /* Add padding for better appearance */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #007bff; /* Blue color */
+    color: white; /* Text color */
+    cursor: pointer; /* Change cursor on hover */
 }
 
+/* Change button color on hover */
+.search-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 button {
     padding: 10px 20px;
     background-color: #007bff; /* Blue color */
@@ -68,7 +86,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #063d79; /* Darker blue on hover */
 }
 
 #placesList {

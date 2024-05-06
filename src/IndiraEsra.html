@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
+    <title>Stockholm Tourism</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nanum+Myeongjo&display=swap');
+   </style>
 </head>
 <body>
     <div class="background-image">
-        <div class="2ndTitle"><h1>Explore Stockholm</h1></div>
-        <div class="2ndSubitle"><h2>Search for Restaurants, Museums, and many more sights!</h2></div>
+        <div class="SecondTitle"><h1>Explore Stockholm</h1></div>
+        <div class="SecondSubtitle"><h2>Search for Restaurants, Museums, and many more sights!</h2></div>
 
         <div class="floating-box">
-            <input type="text" id="searchInput" placeholder="Enter a place...">
-            <button onclick="searchPlaces()">Search</button>
-            <div id="placesList"></div>
+            <form class="search-form">
+                <input type="text" id="searchInput" placeholder="Type here...">
+                <button type="submit" onclick="searchPlaces(event)">Search</button>
+            </form>
+            <div id="results"></div>
+        </div>    
     </div>    
     <script src="script.js"></script>
 </body>
