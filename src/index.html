@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="background-image">
+    <div class="background-image"  style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; text-align: center;">
         <div class="SecondTitle">
             <h1>Explore Stockholm</h1>
         </div>
@@ -20,13 +20,45 @@
 
         <div class="floating-box">
             <div class="inputAndButton">
-                <input type="text" id="searchInput" placeholder="What are you looking for?">
-                <button onclick="search()">Search</button>
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="What are you looking for?">
+                    <button type="submit">Search</button>
+                </form>
             </div>
             <div id="results"></div>
         </div>
     </div>
-    <script src="script.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('searchForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
 
+       
+                const userInput = document.getElementById('searchInput').value;
+
+                
+                fetch('/send-message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                   
+                    console.log(data);
+                    
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.textContent = data.message;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
 </html>
+
