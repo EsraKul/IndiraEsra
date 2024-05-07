@@ -22,6 +22,21 @@ body {
     text-align: center;
 }
 
+.dotted-line {
+    border-style:dashed;
+    border-width: 2px; /* Adjust the thickness of the line */
+    border-color: white; /* Set the color of the line */
+    margin-bottom: 35px; /* Add some margin for spacing */
+    width: 80%; /* Adjust the width */
+    display: flex;
+    justify-content: center; /* Center the line horizontally */
+    margin-left: auto; /* Align left margin to auto */
+    margin-right: auto; /* Align right margin to auto */
+}
+
+
+
+
 button {
     padding: 10px 20px;
     background-color: #feffff;
