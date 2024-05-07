@@ -11,3 +11,33 @@ function search() {
         outputDiv.innerHTML = "<p>Please enter some text.</p>";
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('searchInput');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+
+        const userInput = document.getElementById('searchInput').value;
+
+        
+        fetch('/send-message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+           
+            console.log(data);
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.textContent = data.message;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
