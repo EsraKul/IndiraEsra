@@ -1,0 +1,70 @@
+/* Import the Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nanum+Myeongjo&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/stockholm.Sunset2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* Ensure the background covers the entire viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #feffff;
+    z-index: -1;
+    font-family: "Nanum Myeongjo", serif;
+}
+
+.landing-page {
+    text-align: center;
+}
+
+.dotted-line {
+    border-style:dashed;
+    border-width: 2px; /* Adjust the thickness of the line */
+    border-color: white; /* Set the color of the line */
+    margin-bottom: 35px; /* Add some margin for spacing */
+    width: 80%; /* Adjust the width */
+    display: flex;
+    justify-content: center; /* Center the line horizontally */
+    margin-left: auto; /* Align left margin to auto */
+    margin-right: auto; /* Align right margin to auto */
+}
+
+
+
+
+button {
+    padding: 10px 20px;
+    background-color: #feffff;
+    color: rgba(0, 0, 0, 0.799);
+    font-family: "Nanum Myeongjo", serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+button:hover {
+    background-color: #ffffff;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.landing-page {
+    margin-top: 1%;
+    animation: slideUp 1s ease forwards;
+}

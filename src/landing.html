@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Stockholm Tourism</title>
+    <link rel="stylesheet" href="landing-style.css">
+</head>
+
+<body>
+    <div class="landing-page">
+        <h1>Welcome to Stockholm</h1>
+        <h3>Discover the beauty of the city</h3>
+        <div class="dotted-line"></div>
+        <button onclick="redirectToMain()">Explore</button>
+    </div>
+
+    <script>
+        function redirectToMain() {
+            // Redirect to the main website after a short delay
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 500); // Adjust the delay time as needed
+        }
+    </script>
+</body>
+
+</html>
