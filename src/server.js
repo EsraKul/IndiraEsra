@@ -23,7 +23,7 @@ const tourismWords = [
     "history",
     "fun",
     "outdoor",
-    "activities", // Fixed typo here
+    "activities",
 ];
 
 // Function to validate user input against predefined words
@@ -52,7 +52,7 @@ async function sendMessage(message) {
     }
 }
 
-// Create a new server for the website
+// Creating a server for the website
 const server = http.createServer((req, res) => {
     if (req.method === 'GET' && req.url === '/') {
         fs.readFile('index.html', (err, data) => {
@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-// Start server.
+// Starting server.
 const PORT = 2999;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

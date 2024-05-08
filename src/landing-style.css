@@ -1,7 +1,3 @@
-/* Import the Montserrat font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nanum+Myeongjo&display=swap');
-
 body {
     margin: 0;
     padding: 0;
@@ -15,37 +11,32 @@ body {
     align-items: center;
     color: #feffff;
     z-index: -1;
-    font-family: "Nanum Myeongjo", serif;
+    font-family: "Nanum Myeongjo", serif; /* Font family */
 }
 
 .landing-page {
-    text-align: center;
+    text-align: center; /* Center align text */
+    margin-top: 1%; /* Add margin to top */
+    animation: slideUp 1s ease forwards; /* Apply slide-up animation */
 }
 
 .dotted-line {
-    border-style:dashed;
-    border-width: 2px; /* Adjust the thickness of the line */
-    border-color: white; /* Set the color of the line */
-    margin-bottom: 35px; /* Add some margin for spacing */
-    width: 80%; /* Adjust the width */
+    border: 2px dashed white; /* Dashed line with 2px thickness and white color */
+    margin: 0 auto 35px; /* Auto margins for horizontal centering and bottom spacing */
+    width: 80%; /* Adjusted width */
     display: flex;
-    justify-content: center; /* Center the line horizontally */
-    margin-left: auto; /* Align left margin to auto */
-    margin-right: auto; /* Align right margin to auto */
+    justify-content: center; /* Center horizontally */
 }
-
-
-
 
 button {
     padding: 10px 20px;
     background-color: #feffff;
     color: rgba(0, 0, 0, 0.799);
-    font-family: "Nanum Myeongjo", serif;
+    font-family: "Nanum Myeongjo", serif; /* Font family */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 2;
+    z-index: 2; /* Ensure button appears above background */
 }
 
 button:hover {
@@ -62,9 +53,4 @@ button:hover {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-.landing-page {
-    margin-top: 1%;
-    animation: slideUp 1s ease forwards;
 }

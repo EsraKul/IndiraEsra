@@ -1,102 +1,90 @@
-/* Import the Montserrat font */
+/* Importing fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nanum+Myeongjo&display=swap');
 
+/* Base styles for body and html */
 body,
 html {
     height: 100%;
     margin: 0;
-    font-family: 'Oswald', sans-serif;
-    opacity: 0; /* Initially hide the content */
+    font-family: 'Oswald', sans-serif; /* Fallback font */
+    opacity: 0; /* Initially invisible */
     animation: fadeIn 1s ease forwards; /* Fade-in animation */
 }
+
+/* Fade-in animation keyframes */
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: 0; /* Start opacity */
     }
     to {
-        opacity: 1;
+        opacity: 1; /* End opacity */
     }
 }
 
+/* Background image styling */
 .background-image {
-    background-image: url('../images/stockhom-background.jpg');
-    background-size: cover;
-    background-position: top;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    background: url('../images/stockhom-background.jpg') top/cover fixed no-repeat; /* Background image */
+    height: 100vh; /* Full viewport height */
 }
 
+/* Secondary title styling */
 .SecondTitle {
-    margin-top: 60 px;
-    margin-left: 50px;
-    color: white;
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-size: 35px;
-    font-style: normal;
-
+    margin: 60px 0 0 50px; /* Margin */
+    color: white; /* Text color */
+    font: 700 35px/1 "Cinzel", serif; /* Font */
 }
 
+/* Secondary subtitle styling */
 .SecondSubtitle {
-    margin-top: -40px;
-    margin-left: 50px;
-    color: white;
-    font-family: "Nanum Myeongjo", serif;
-    font-weight: 400;
-    font-style: normal;
+    margin: -40px 0 0 50px; /* Margin */
+    color: white; /* Text color */
+    font: 400 normal 1 "Nanum Myeongjo", serif; /* Font */
 }
 
-.floating-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    margin-top: 60px;
-    padding: 20px 100px;
-    /* Adjust padding to make the box larger on the sides */
-    border-radius: 10px;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+/* Floating box styling */
+.floatingBox {
+    background: rgba(255, 255, 255, 0.8); /* Background color with transparency */
+    padding: 60px 100px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center align text */
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the box */
+    z-index: 1; /* Ensure it's above other elements */
 }
 
+/* Input and button container styling */
 .inputAndButton {
-    display: flex;
-    /* Use flexbox */
-    justify-content: center;
-    /* Center items horizontally */
+    display: flex; /* Flex layout */
+    justify-content: center; /* Center align horizontally */
 }
 
+/* Search input styling */
 #searchInput {
-    padding: 10px;
-    border: 1px solid #000000;
-    /* Add a border */
-    width: 300px;
-    /* Set a fixed width */
-    box-sizing: border-box;
-    /* Include padding and border in the width */
+    padding: 10px; /* Padding */
+    border: 1px solid #000; /* Border */
+    width: 300px; /* Width */
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
+/* Button styling */
 button {
-    padding: 10px 20px;
-    background-color: #68adf6;
-    color: white;
-    border: 1px solid #000000;
-
-    cursor: pointer;
+    padding: 10px 20px; /* Padding */
+    background: #68adf6; /* Background color */
+    color: white; /* Text color */
+    border: 1px solid #000; /* Border */
+    cursor: pointer; /* Cursor style */
 }
 
+/* Button hover effect */
 button:hover {
-    background-color: #063d79;
+    background: #063d79; /* Hover background color */
 }
 
+/* Results container styling */
 #results {
-    margin-top: 20px;
-    /* Add space between input/button and results */
+    margin-top: 20px; /* Spacing from the top */
 }

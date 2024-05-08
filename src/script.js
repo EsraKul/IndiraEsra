@@ -1,3 +1,5 @@
+/*
+KEEP TO UNDERSTAND PREVIOUS CODE
 function search() {
     var inputText = document.getElementById("searchInput").value;
     var outputDiv = document.getElementById("results");
@@ -11,7 +13,9 @@ function search() {
         outputDiv.innerHTML = "<p>Please enter some text.</p>";
     }
 }
+*/
 
+/*MAYBE DELETE
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('searchInput');
     form.addEventListener('submit', function(event) {
@@ -41,3 +45,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+*/
