@@ -26,7 +26,9 @@ html {
 /* Background image styling */
 .background-image {
     background: url('../images/stockhom-background.jpg') top/cover fixed no-repeat; /* Background image */
-    height: 100vh; /* Full viewport height */
+    height: 100%; /* Full viewport height */
+    width: 100%;
+    position: fixed;
 }
 
 /* Secondary title styling */
