@@ -16,6 +16,9 @@ function initializeMap(){
 function search() {
     var inputText = document.getElementById("searchInput").value;
     var outputList = document.getElementById("resultsList");
+    var sidePanel = document.querySelector(".sidePanel");
+    var mapDiv = document.getElementById("mapDiv");
+
     var request = {
         query: inputText + ' in Stockholm',
         fields: ['name', 'geometry', 'photos', 'rating'] 
@@ -29,7 +32,10 @@ function search() {
                 createMarker(results[i]);
                 addResultToList(results[i]);
             }
+            sidePanel.classList.add("show");
+            mapDiv.style.display = "block";
             document.getElementById("searchInput").value = "";
+
         } else {
             alert('No attractions found.');
         }

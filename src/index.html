@@ -10,14 +10,20 @@
         .sidePanel {
         position: fixed;
         top: 0;
-        left: 0;
+        left: -500px; /* makes it so the sidepanel isnt visible at first*/
         width: 300px;
         height: 100%;
         background-color: #f2f2f2;
         padding: 20px;
         overflow-y: auto; 
         z-index: 1000; 
+        transition: left 0.3s ease;
     }
+
+    .sidePanel.show { /*sidepanel becomes visible*/
+       left: 0;
+   }
+
 
     .sidePanel h3 {
         margin-top: 0;
@@ -59,7 +65,10 @@
                 <input type="text" id="searchInput" placeholder="What are you looking for?">
                 <button onclick="search()">Search</button>
             </div>
+
+        <div id="mapDiv" style="display: none;">
             <div id="map"></div>
+        </div>
         </div>
 
      
