@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stockholm Tourism</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 
 <body>
@@ -23,10 +27,11 @@
                 <input type="text" id="searchInput" placeholder="What are you looking for?">
                 <button onclick="search()">Search</button>
             </div>
-            <div id="results"></div>
+            <div id="map"></div>
         </div>
     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap" async defer></script>
     <script src="script.js"></script>
+</div>
 </body>
 </html>
-
