@@ -11,7 +11,14 @@ function initializeMap(){
     infowindow = new google.maps.InfoWindow();
 }
 
-
+function toggleContainer() {
+    var container = document.querySelector('.container');
+    if (container.style.display === 'none') {
+        container.style.display = 'block'; // Show the container
+    } else {
+        container.style.display = 'none'; // Hide the container
+    }
+}
 //Search function that makes the searches in Stockholm specifically and shows a sidepanel with suggestions. 
 function search() {
     var inputText = document.getElementById("searchInput").value;

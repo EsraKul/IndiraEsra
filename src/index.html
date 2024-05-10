@@ -1,49 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
 
-        /*temporary styling -move to css */
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-        .sidePanel {
-        position: fixed;
-        top: 0;
-        left: -500px; /* makes it so the sidepanel isnt visible at first*/
-        width: 300px;
-        height: 100%;
-        background-color: #f2f2f2;
-        padding: 20px;
-        overflow-y: auto; 
-        z-index: 1000; 
-        transition: left 0.3s ease;
-    }
-
-    .sidePanel.show { /*sidepanel becomes visible*/
-       left: 0;
-   }
-
-
-    .sidePanel h3 {
-        margin-top: 0;
-    }
-
-    .sidePanel ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .sidePanel li {
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
-
-    .sidePanel li:hover {
-        background-color: #ddd;
-    }
-
-    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,34 +9,40 @@
 </head>
 
 <body>
-    <div class="background-image">
-        <div class="SecondTitle">
-            <h1>Explore Stockholm</h1>
-        </div>
-        <div class="SecondSubtitle">
-            <h2>Search for Restaurants, Museums, and many more sights!</h2>
-        </div>
-
-        <div class="floatingBox">
-            <div class="inputAndButton">
-                <input type="text" id="searchInput" placeholder="What are you looking for?">
-                <button onclick="search()">Search</button>
+    <div class="container">
+        <div class="imageLeft"></div> 
+        <div class="Titles">
+            <div class="SecondTitle">
+                <h1>Explore Stockholm</h1>
             </div>
+            <div class="SecondSubtitle">
+                <h2>Search for Restaurants, Museums, and many more sights!</h2>
+            </div>
+        </div>
+        <div class="imageRight"></div> 
+    </div>
+
+    <div class="floatingBox">
+        <div class="inputAndButton">
+            <input type="text" id="searchInput" placeholder="What are you looking for?">
+            <button onclick="search(); toggleContainer()">Search</button>
+        </div>
 
         <div id="mapDiv" style="display: none;">
             <div id="map"></div>
         </div>
-        </div>
-
-     
-        <div class="sidePanel">
-            <h3>Search Results</h3>
-            <ul id="resultsList"></ul>
-        </div>
-    
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap" async defer></script>
+
+
+    <div class="sidePanel">
+        <h3>Search Results</h3>
+        <ul id="resultsList"></ul>
+    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap"
+        async defer></script>
     <script src="script.js"></script>
-</div>
+    </div>
 </body>
+
 </html>

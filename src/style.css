@@ -8,85 +8,211 @@ body,
 html {
     height: 100%;
     margin: 0;
-    font-family: 'Oswald', sans-serif; /* Fallback font */
-    opacity: 0; /* Initially invisible */
-    animation: fadeIn 1s ease forwards; /* Fade-in animation */
+    font-family: 'Oswald', sans-serif;
+    /* Fallback font */
+    opacity: 0;
+    /* Initially invisible */
+    animation: fadeIn 1s ease forwards;
+    /* Fade-in animation */
+    background-color: #ADD8E6;
+    /* Light pastel blue color */
 }
 
 /* Fade-in animation keyframes */
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Start opacity */
+        opacity: 0;
+        /* Start opacity */
     }
+
     to {
-        opacity: 1; /* End opacity */
+        opacity: 1;
+        /* End opacity */
     }
 }
 
-/* Background image styling */
-.background-image {
-    background: url('../images/stockhom-background.jpg') top/cover fixed no-repeat; /* Background image */
-    height: 100%; /* Full viewport height */
-    width: 100%;
-    position: fixed;
+.container {
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
 }
 
-/* Secondary title styling */
+.imageLeft,
+.imageRight {
+    width: 100px;
+    /* Adjust width as needed */
+    height: 100px;
+    /* Adjust height as needed */
+
+    background-size: cover;
+    /* Cover the container */
+    background-position: center;
+    /* Center the image */
+}
+
+.imageLeft {
+    margin-right: 20px;
+    background-image: url('../images/stockholm 1.png');
+}
+
+.imageRight {
+    margin-left: 20px;
+    background-image: url('../images/stockholm 2.webp');
+}
+
+.Titles {
+    text-align: center;
+    /* Center align text */
+}
+
 .SecondTitle {
-    margin: 60px 0 0 50px; /* Margin */
-    color: white; /* Text color */
-    font: 700 35px/1 "Cinzel", serif; /* Font */
+    margin-top: 60px;
+    /* Adjust margin top as needed */
+    color: rgb(0, 0, 0);
+    /* Text color */
+    font: 700 35px/1 "Cinzel", serif;
+    /* Font */
 }
 
-/* Secondary subtitle styling */
 .SecondSubtitle {
-    margin: -40px 0 0 50px; /* Margin */
-    color: white; /* Text color */
-    font: 400 normal 1 "Nanum Myeongjo", serif; /* Font */
+    margin-top: -40px;
+    /* Adjust margin top as needed */
+    color: rgb(0, 0, 0);
+    /* Text color */
+    font: 400 normal 1 "Nanum Myeongjo", serif;
+    /* Font */
 }
+
 
 /* Floating box styling */
 .floatingBox {
-    background: rgba(255, 255, 255, 0.8); /* Background color with transparency */
-    padding: 60px 100px; /* Padding */
-    border-radius: 10px; /* Rounded corners */
-    text-align: center; /* Center align text */
-    position: fixed; /* Fixed positioning */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the box */
-    z-index: 1; /* Ensure it's above other elements */
+    background: rgba(255, 255, 255, 0.8);
+    /* Background color with transparency */
+    padding: 60px 100px;
+    /* Padding */
+    border-radius: 10px;
+    /* Rounded corners */
+    text-align: center;
+    /* Center align text */
+    position: fixed;
+    /* Fixed positioning */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Center the box */
+    z-index: 1;
+    /* Ensure it's above other elements */
 }
 
 /* Input and button container styling */
 .inputAndButton {
-    display: flex; /* Flex layout */
-    justify-content: center; /* Center align horizontally */
+    display: flex;
+    /* Flex layout */
+    justify-content: center;
+    /* Center align horizontally */
+    margin-bottom: 10px;
 }
 
 /* Search input styling */
 #searchInput {
-    padding: 10px; /* Padding */
-    border: 1px solid #000; /* Border */
-    width: 300px; /* Width */
-    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px;
+    /* Padding */
+    border: 1px solid #000;
+    /* Border */
+    width: 300px;
+    /* Width */
+    box-sizing: border-box;
+    /* Include padding and border in width */
 }
 
 /* Button styling */
 button {
-    padding: 10px 20px; /* Padding */
-    background: #68adf6; /* Background color */
-    color: white; /* Text color */
-    border: 1px solid #000; /* Border */
-    cursor: pointer; /* Cursor style */
+    font: 400 normal 1 "Nanum Myeongjo", serif;
+    padding: 10px 20px;
+    /* Padding */
+    background: #68adf6;
+    /* Background color */
+    color: white;
+    /* Text color */
+    border: 1px solid #000;
+    /* Border */
+    cursor: pointer;
+    /* Cursor style */
 }
 
 /* Button hover effect */
 button:hover {
-    background: #063d79; /* Hover background color */
+    background: #063d79;
+    /* Hover background color */
 }
 
 /* Results container styling */
 #results {
-    margin-top: 20px; /* Spacing from the top */
+    margin-top: 20px;
+    /* Spacing from the top */
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.sidePanel {
+    font: 400 normal 1 "Nanum Myeongjo", serif;
+    position: fixed;
+    top: 0;
+    left: -500px;
+    /* makes it so the sidepanel isnt visible at first*/
+    width: 300px;
+    height: 100%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.sidePanel.show {
+    /*sidepanel becomes visible*/
+    left: 0;
+}
+
+
+.sidePanel h3 {
+    font: 500 normal 1 "Nanum Myeongjo", serif;
+    margin:0;
+    position: sticky;
+    top: 0;
+    background-color: #ADD8E6;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.sidePanel ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidePanel li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    /* Add border */
+    padding: 30px;
+    /* Add padding */
+    border-radius: 5px;
+    /* Add border radius for a slightly rounded appearance */
+}
+
+.sidePanel li:hover {
+    background-color: #ddd;
 }
