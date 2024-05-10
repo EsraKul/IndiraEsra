@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+
+        /*temporary styling -move to css */
         #map {
             height: 400px;
             width: 100%;
         }
+        .sidePanel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #f2f2f2;
+        padding: 20px;
+        overflow-y: auto; 
+        z-index: 1000; 
+    }
+
+    .sidePanel h3 {
+        margin-top: 0;
+    }
+
+    .sidePanel ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidePanel li {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .sidePanel li:hover {
+        background-color: #ddd;
+    }
+
     </style>
 <head>
     <meta charset="UTF-8">
@@ -29,6 +61,13 @@
             </div>
             <div id="map"></div>
         </div>
+
+     
+        <div class="sidePanel">
+            <h3>Search Results</h3>
+            <ul id="resultsList"></ul>
+        </div>
+    
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap" async defer></script>
     <script src="script.js"></script>
