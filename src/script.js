@@ -12,14 +12,6 @@ function initializeMap(){
     infowindow = new google.maps.InfoWindow();
 }
 
-function toggleContainer() {
-    var container = document.querySelector('.container');
-    if (container.style.display === 'none' || container.style.display === '') {
-        container.style.display = 'block'; // Show the container
-    } else {
-        container.style.display = 'none'; // Hide the container
-    }
-}
 
 function toggleContainer() {
     var container = document.querySelector('.container');
@@ -75,6 +67,11 @@ function createMarker(place) {
     });
 }
 
+function isSelected(place) {
+    return selectedPlaces.some(function(selectedPlace) {
+        return selectedPlace.name === place.name;
+    });
+}
 
 //Adds to a sidepanel, where rating and photo is incldued. 
 function addResultToList(place) {
@@ -107,14 +104,21 @@ function addResultToList(place) {
         infowindow.open(map, this);
     };
 
-    var addButton = document.createElement("button");
-    addButton.textContent = "Add";
-    addButton.onclick = function () {
-        addSelectedPlace(place);
-    };
-    listItem.appendChild(addButton);
+    if (!isSelected(place)) { // Check if the place is not already selected
+        var addButton = document.createElement("button");
+        addButton.textContent = "Add";
+        addButton.onclick = function () {
+            removeButton(this); // Pass the button element to the removeButton function
+            addSelectedPlace(place);
+        };
+        listItem.appendChild(addButton);
+    }
 
     outputList.appendChild(listItem);
+}
+
+function removeButton(button){
+    button.remove(); // Remove the button from the DOM
 }
 
 function addSelectedPlace(place) {
