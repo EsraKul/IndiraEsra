@@ -7,6 +7,21 @@
     <title>Stockholm Tourism</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+.container {
+    display: flex;
+}
+
+.sidePanel {
+    flex: 1;
+}
+
+.selectedPanel {
+    flex: 1;
+    float:right; /* Add some space between sidePanel and selectedPanel */
+}
+
+</style>
 
 <body>
     <div class="container">
@@ -37,6 +52,10 @@
     <div class="sidePanel">
         <h3>Search Results</h3>
         <ul id="resultsList"></ul>
+    </div>
+    <div class="selectedPanel">
+        <h3>Selected Places</h3>
+        <ul id="selectedList"></ul>
     </div>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap"

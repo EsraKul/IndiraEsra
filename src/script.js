@@ -1,5 +1,6 @@
 var map;
 var infowindow;
+var selectedPlaces = [];
 
 //This function initializes maps, and starts with Stockholm as default. 
 function initializeMap(){
@@ -94,5 +95,28 @@ function addResultToList(place) {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     };
+
+    var addButton = document.createElement("button");
+    addButton.textContent = "Add";
+    addButton.onclick = function () {
+        addSelectedPlace(place);
+    };
+    listItem.appendChild(addButton);
+
     outputList.appendChild(listItem);
+}
+
+function addSelectedPlace(place) {
+    selectedPlaces.push(place);
+    renderSelectedList();
+}
+
+function renderSelectedList() {
+    var selectedList = document.getElementById("selectedList");
+    selectedList.innerHTML = "";
+    selectedPlaces.forEach(function(place) {
+        var listItem = document.createElement("li");
+        listItem.textContent = place.name;
+        selectedList.appendChild(listItem);
+    });
 }
