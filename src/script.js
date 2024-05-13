@@ -28,6 +28,7 @@ function search() {
     var inputText = document.getElementById("searchInput").value;
     var outputList = document.getElementById("resultsList");
     var sidePanel = document.querySelector(".sidePanel");
+    var selectedPanel = document.querySelector(".selectedPanel");
     var mapDiv = document.getElementById("mapDiv");
 
     var request = {
@@ -44,6 +45,7 @@ function search() {
                 addResultToList(results[i]);
             }
             sidePanel.classList.add("show");
+            selectedPanel.classList.add("show");
             mapDiv.style.display = "block";
             document.getElementById("searchInput").value = "";
 
@@ -73,19 +75,23 @@ function isSelected(place) {
     });
 }
 
-//Adds to a sidepanel, where rating and photo is incldued. 
+//Adds to a sidepanel, where rating and photo is included. 
 function addResultToList(place) {
     var outputList = document.getElementById("resultsList");
     var listItem = document.createElement("li");
 
     var placeInfo = document.createElement("div");
+    placeInfo.style.textAlign = "center"; // Center align the content
+
     var placeName = document.createElement("span");
     placeName.textContent = place.name;
     placeInfo.appendChild(placeName);
 
     if (place.photos && place.photos.length > 0) {
         var placePhoto = document.createElement("img");
-        placePhoto.src = place.photos[0].getUrl({ maxWidth: 50, maxHeight: 50 });
+        placePhoto.src = place.photos[0].getUrl({ maxWidth: 175, maxHeight: 175 }); // Increase the size of the image
+        placePhoto.style.display = "block"; // Make the image a block element for centering
+        placePhoto.style.margin = "20px auto 10px"; // Change margin to add space between title and picture
         placeInfo.appendChild(placePhoto);
     }
 
@@ -104,9 +110,12 @@ function addResultToList(place) {
         infowindow.open(map, this);
     };
 
+    // Add the "Add" button centered below the picture
     if (!isSelected(place)) { // Check if the place is not already selected
         var addButton = document.createElement("button");
         addButton.textContent = "Add";
+        addButton.style.display = "block"; // Make the button a block element for centering
+        addButton.style.margin = "10px auto"; // Center the button
         addButton.onclick = function () {
             removeButton(this); // Pass the button element to the removeButton function
             addSelectedPlace(place);
@@ -116,6 +125,8 @@ function addResultToList(place) {
 
     outputList.appendChild(listItem);
 }
+
+
 
 function removeButton(button){
     button.remove(); // Remove the button from the DOM
@@ -131,10 +142,16 @@ function renderSelectedList() {
     selectedList.innerHTML = "";
     selectedPlaces.forEach(function(place) {
         var listItem = document.createElement("li");
-        listItem.textContent = place.name;
+        listItem.classList.add("selectedListItem");
+
+        var placeName = document.createElement("span");
+        placeName.textContent = place.name;
+
+        listItem.appendChild(placeName);
         selectedList.appendChild(listItem);
     });
 }
+
 //creates a route with the travelmode walking. 
 function Createroute(){
     console.log("Button clicked!");
