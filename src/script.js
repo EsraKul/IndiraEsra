@@ -135,3 +135,41 @@ function renderSelectedList() {
         selectedList.appendChild(listItem);
     });
 }
+//creates a route with the travelmode walking. 
+function Createroute(){
+    console.log("Button clicked!");
+    if (selectedPlaces.length < 2) {
+        alert('Select a minimum of two places!');
+        return;
+    }
+
+    var waypoints = [];
+    selectedPlaces.forEach(function(place) {
+        waypoints.push({
+            location: place.geometry.location,
+            stopover: true
+        });
+    });
+
+    var request = {
+        origin: waypoints.shift().location,
+        destination: waypoints.pop().location,
+        waypoints: waypoints,
+        optimizeWaypoints: true,
+        travelMode: 'WALKING'
+    };
+
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer({
+        map: map,
+        preserveViewport: true
+    });
+
+    directionsService.route(request, function(response, status) {
+        if (status === 'OK') {
+            directionsRenderer.setDirections(response);
+        } else {
+            alert('Route Failed ' + status);
+        }
+    });
+}
