@@ -14,14 +14,25 @@ function initializeMap(){
 
 function toggleContainer() {
     var container = document.querySelector('.container');
-    if (container.style.display === 'none') {
+    if (container.style.display === 'none' || container.style.display === '') {
         container.style.display = 'block'; // Show the container
     } else {
         container.style.display = 'none'; // Hide the container
     }
 }
+
+function toggleContainer() {
+    var container = document.querySelector('.container');
+    if (container) {
+        container.remove(); // Remove the container from the DOM
+    } else {
+        // Container has already been removed, ignore
+    }
+}
+
 //Search function that makes the searches in Stockholm specifically and shows a sidepanel with suggestions. 
 function search() {
+    toggleContainer();
     var inputText = document.getElementById("searchInput").value;
     var outputList = document.getElementById("resultsList");
     var sidePanel = document.querySelector(".sidePanel");
