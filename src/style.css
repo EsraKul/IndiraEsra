@@ -8,48 +8,35 @@ body,
 html {
     height: 100%;
     margin: 0;
-    font-family: 'Oswald', sans-serif;
-    /* Fallback font */
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
     opacity: 0;
-    /* Initially invisible */
     animation: fadeIn 1s ease forwards;
-    /* Fade-in animation */
-    background-color: #ADD8E6;
-    /* Light pastel blue color */
+    background-image: linear-gradient(to bottom, #ADD8E6, #FFF8DC);
 }
 
 /* Fade-in animation keyframes */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        /* Start opacity */
     }
 
     to {
         opacity: 1;
-        /* End opacity */
     }
 }
 
 .container {
     display: flex;
     align-items: center;
-    /* Center vertically */
     justify-content: center;
-    /* Center horizontally */
 }
 
 .imageLeft,
 .imageRight {
     width: 100px;
-    /* Adjust width as needed */
     height: 100px;
-    /* Adjust height as needed */
-
     background-size: cover;
-    /* Cover the container */
     background-position: center;
-    /* Center the image */
 }
 
 .imageLeft {
@@ -64,139 +51,110 @@ html {
 
 .Titles {
     text-align: center;
-    /* Center align text */
 }
 
 .SecondTitle {
     margin-top: 60px;
-    /* Adjust margin top as needed */
-    color: rgb(0, 0, 0);
-    /* Text color */
+    color: #333; /* Darkened the color for better readability */
     font: 700 35px/1 "Cinzel", serif;
-    /* Font */
 }
 
 .SecondSubtitle {
     margin-top: -40px;
-    /* Adjust margin top as needed */
-    color: rgb(0, 0, 0);
-    /* Text color */
+    color: #666; /* Darkened the color for better readability */
     font: 400 normal 1 "Nanum Myeongjo", serif;
-    /* Font */
 }
-
 
 /* Floating box styling */
 .floatingBox {
-    background: rgba(255, 255, 255, 0.8);
-    /* Background color with transparency */
+    background: rgba(255, 255, 255, 0.9); /* Increased opacity for better contrast */
     padding: 60px 100px;
-    /* Padding */
     border-radius: 10px;
-    /* Rounded corners */
     text-align: center;
-    /* Center align text */
     position: fixed;
-    /* Fixed positioning */
     top: 50%;
-    /* Center vertically */
     left: 50%;
-    /* Center horizontally */
     transform: translate(-50%, -50%);
-    /* Center the box */
-    z-index: 1;
-    /* Ensure it's above other elements */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
 }
 
 /* Input and button container styling */
 .inputAndButton {
     display: flex;
-    /* Flex layout */
     justify-content: center;
-    /* Center align horizontally */
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
 /* Search input styling */
 #searchInput {
-    padding: 10px;
-    /* Padding */
-    border: 1px solid #000;
-    /* Border */
+    padding: 12px; /* Increased padding for better usability */
+    border: 1px solid #ddd; /* Softened the border color */
     width: 300px;
-    /* Width */
     box-sizing: border-box;
-    /* Include padding and border in width */
 }
 
 /* Button styling */
 button {
-    font: 400 normal 1 "Nanum Myeongjo", serif;
-    padding: 10px 20px;
-    /* Padding */
-    background: #68adf6;
-    /* Background color */
+    font: 700 16px/1 "Montserrat", sans-serif; /* Use Montserrat font */
+    padding: 12px 30px;
+    background: #007bff; /* Changed button color to a more vibrant blue */
     color: white;
-    /* Text color */
-    border: 1px solid #000;
-    /* Border */
+    border: none;
     cursor: pointer;
-    /* Cursor style */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Added transition for smoother hover effect */
 }
 
 /* Button hover effect */
 button:hover {
-    background: #063d79;
-    /* Hover background color */
+    background: #0056b3; /* Darkened the hover color */
 }
 
 /* Results container styling */
 #results {
-    margin-top: 20px;
-    /* Spacing from the top */
+    margin-top: 40px; /* Increased spacing from the top */
 }
 
 #map {
     height: 400px;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #ddd; /* Softened the border color */
 }
 
-.sidePanel,
-.selectedPanel {
+.sidePanel {
     font: 400 normal 1 "Nanum Myeongjo", serif;
     position: fixed;
     top: 0;
     width: 300px;
     height: 100%;
-    background-color: #f2f2f2;
+    background-color: #f8f9fa; /* Changed background color to a lighter shade */
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
     transition: left 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+    border-right: 1px solid #ddd; /* Added border for separation */
 }
 
 .selectedPanel {
     font: 400 normal 1 "Nanum Myeongjo", serif;
     position: fixed;
     margin-right: 20px;
-    top: 50%; /* Center vertically */
+    top: 50%;
     transform: translateY(-50%); /* Center vertically */
     right: 0; /* Align to the right */
     width: 300px;
     min-height: 200px; /* Set a minimum height */
     height: auto; /* Adjust height based on content */
     max-height: 70%; /* Limit the maximum height */
-    background-color: #f2f2f2;
+    background-color: #f8f9fa;
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
-    border: 2px solid #000; /* Add a border */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for depth */
-    transition: right 0.3s ease;
+    transition: left 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+    border-right: 1px solid #ddd; /* Added border for separation */
 }
-
 .sidePanel {
     left: -500px; /* hides the side panel initially */
 }
@@ -214,59 +172,36 @@ button:hover {
     /*sidepanel becomes visible*/
     left: 0;
 }
-
-
 .sidePanel h3, .selectedPanel h3 {
-    font: 500 normal 1 "Nanum Myeongjo", serif;
-    margin:0;
+    font: 500 normal 1 "Montserrat", sans-serif; /* Use Montserrat font */
+    margin: 0;
     position: sticky;
     top: 0;
-    background-color: #ADD8E6;
-    color: rgb(0, 0, 0);
+    background-color: #007bff; /* Changed background color to match the button color */
+    color: white;
     padding: 20px;
-    border: 1px solid black;
+    border-bottom: 1px solid #ddd; /* Added border for separation */
 }
 
-.sidePanel ul {
+.sidePanel ul, .selectedPanel ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0; /* Adjusted margin for better spacing */
 }
 
-.sidePanel li {
+.sidePanel li, .selectedPanel li {
     margin-bottom: 10px;
     cursor: pointer;
-    margin-bottom: 10px;
-    border: 1px solid #000000;
-    /* Add border */
-    padding: 30px;
-    /* Add padding */
+    padding: 15px; /* Increased padding for better clickability */
     border-radius: 5px;
-    /* Add border radius for a slightly rounded appearance */
+    background-color: #f2f2f2; /* Changed background color to a lighter shade */
 }
 
-.sidePanel li:hover {
-    background-color: #ddd;
-}
-
-.selectedPanel ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.selectedPanel li {
-    margin-bottom: 10px;
-    cursor: pointer;
-    border: 1px solid #000000;
-    padding: 10px;
-    border-radius: 5px;
-    background-color:#ecf5fc;
+.sidePanel li:hover, .selectedPanel li:hover {
+    background-color: #e5e5e5; /* Darkened the hover color */
 }
 
 .selectedPanel button {
-    margin: auto; /* Center the button horizontally and vertically within the panel */
-    display: block; /* Make the button a block element */
+    margin: 20px auto; /* Adjusted margin for better alignment */
+    display: block;
 }
