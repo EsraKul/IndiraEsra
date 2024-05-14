@@ -8,7 +8,8 @@ body,
 html {
     height: 100%;
     margin: 0;
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+    font-family: 'Montserrat', sans-serif;
+    /* Use Montserrat font */
     opacity: 0;
     animation: fadeIn 1s ease forwards;
     background-image: linear-gradient(to bottom, #ADD8E6, #FFF8DC);
@@ -55,19 +56,22 @@ html {
 
 .SecondTitle {
     margin-top: 60px;
-    color: #333; /* Darkened the color for better readability */
+    color: #333;
+    /* Darkened the color for better readability */
     font: 700 35px/1 "Cinzel", serif;
 }
 
 .SecondSubtitle {
     margin-top: -40px;
-    color: #666; /* Darkened the color for better readability */
+    color: #666;
+    /* Darkened the color for better readability */
     font: 400 normal 1 "Nanum Myeongjo", serif;
 }
 
 /* Floating box styling */
 .floatingBox {
-    background: rgba(255, 255, 255, 0.9); /* Increased opacity for better contrast */
+    background: rgba(255, 255, 255, 0.9);
+    /* Increased opacity for better contrast */
     padding: 60px 100px;
     border-radius: 10px;
     text-align: center;
@@ -75,50 +79,60 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Added box shadow for depth */
 }
 
 /* Input and button container styling */
 .inputAndButton {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Increased margin for better spacing */
+    margin-bottom: 20px;
+    /* Increased margin for better spacing */
 }
 
 /* Search input styling */
 #searchInput {
-    padding: 12px; /* Increased padding for better usability */
-    border: 1px solid #ddd; /* Softened the border color */
+    padding: 12px;
+    /* Increased padding for better usability */
+    border: 1px solid #ddd;
+    /* Softened the border color */
     width: 300px;
     box-sizing: border-box;
 }
 
 /* Button styling */
 button {
-    font: 700 16px/1 "Montserrat", sans-serif; /* Use Montserrat font */
+    font: 700 16px/1 "Montserrat", sans-serif;
+    /* Use Montserrat font */
     padding: 12px 30px;
-    background: #007bff; /* Changed button color to a more vibrant blue */
+    background: #007bff;
+    /* Changed button color to a more vibrant blue */
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Added transition for smoother hover effect */
+    transition: background-color 0.3s ease;
+    /* Added transition for smoother hover effect */
 }
 
 /* Button hover effect */
 button:hover {
-    background: #0056b3; /* Darkened the hover color */
+    background: #0056b3;
+    /* Darkened the hover color */
 }
 
 /* Results container styling */
 #results {
-    margin-top: 40px; /* Increased spacing from the top */
+    margin-top: 40px;
+    /* Increased spacing from the top */
 }
 
 #map {
     height: 400px;
     width: 100%;
-    border: 1px solid #ddd; /* Softened the border color */
+    border: 1px solid #ddd;
+    /* Softened the border color */
 }
 
 .sidePanel {
@@ -127,13 +141,16 @@ button:hover {
     top: 0;
     width: 300px;
     height: 100%;
-    background-color: #f8f9fa; /* Changed background color to a lighter shade */
+    background-color: #f8f9fa;
+    /* Changed background color to a lighter shade */
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
     transition: left 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
-    border-right: 1px solid #ddd; /* Added border for separation */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Added box shadow for depth */
+    border-right: 1px solid #ddd;
+    /* Added border for separation */
 }
 
 .selectedPanel {
@@ -141,30 +158,40 @@ button:hover {
     position: fixed;
     margin-right: 20px;
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
-    right: 0; /* Align to the right */
+    transform: translateY(-50%);
+    /* Center vertically */
+    right: 0;
+    /* Align to the right */
     width: 300px;
-    min-height: 200px; /* Set a minimum height */
-    height: auto; /* Adjust height based on content */
-    max-height: 70%; /* Limit the maximum height */
+    min-height: 200px;
+    /* Set a minimum height */
+    height: auto;
+    /* Adjust height based on content */
+    max-height: 70%;
+    /* Limit the maximum height */
     background-color: #f8f9fa;
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
     transition: left 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
-    border-right: 1px solid #ddd; /* Added border for separation */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Added box shadow for depth */
+    border-right: 1px solid #ddd;
+    /* Added border for separation */
 }
+
 .sidePanel {
-    left: -500px; /* hides the side panel initially */
+    left: -500px;
+    /* hides the side panel initially */
 }
 
 .selectedPanel {
-    right: -500px; /* hides the selected panel initially */
+    right: -500px;
+    /* hides the selected panel initially */
 }
 
 .selectedPanel.show {
-     /*selectedPanel becomes visible*/
+    /*selectedPanel becomes visible*/
     right: 0;
 }
 
@@ -172,36 +199,49 @@ button:hover {
     /*sidepanel becomes visible*/
     left: 0;
 }
-.sidePanel h3, .selectedPanel h3 {
-    font: 500 normal 1 "Montserrat", sans-serif; /* Use Montserrat font */
+
+.sidePanel h3,
+.selectedPanel h3 {
+    font: 500 normal 1 "Montserrat", sans-serif;
+    /* Use Montserrat font */
     margin: 0;
     position: sticky;
     top: 0;
-    background-color: #007bff; /* Changed background color to match the button color */
+    background-color: #007bff;
+    /* Changed background color to match the button color */
     color: white;
     padding: 20px;
-    border-bottom: 1px solid #ddd; /* Added border for separation */
+    border-bottom: 1px solid #ddd;
+    /* Added border for separation */
 }
 
-.sidePanel ul, .selectedPanel ul {
+.sidePanel ul,
+.selectedPanel ul {
     list-style-type: none;
     padding: 0;
-    margin: 20px 0; /* Adjusted margin for better spacing */
+    margin: 20px 0;
+    /* Adjusted margin for better spacing */
 }
 
-.sidePanel li, .selectedPanel li {
+.sidePanel li,
+.selectedPanel li {
     margin-bottom: 10px;
     cursor: pointer;
-    padding: 15px; /* Increased padding for better clickability */
+    padding: 15px;
+    /* Increased padding for better clickability */
     border-radius: 5px;
-    background-color: #f2f2f2; /* Changed background color to a lighter shade */
+    background-color: #f2f2f2;
+    /* Changed background color to a lighter shade */
 }
 
-.sidePanel li:hover, .selectedPanel li:hover {
-    background-color: #e5e5e5; /* Darkened the hover color */
+.sidePanel li:hover,
+.selectedPanel li:hover {
+    background-color: #e5e5e5;
+    /* Darkened the hover color */
 }
 
 .selectedPanel button {
-    margin: 20px auto; /* Adjusted margin for better alignment */
+    margin: 20px auto;
+    /* Adjusted margin for better alignment */
     display: block;
 }

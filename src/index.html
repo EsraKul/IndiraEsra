@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-.container {
-    display: flex;
-}
+    .container {
+        display: flex;
+    }
 
-.sidePanel {
-    flex: 1;
-}
+    .sidePanel {
+        flex: 1;
+    }
 
-.selectedPanel {
-    flex: 1;
-    float:right; /* Add some space between sidePanel and selectedPanel */
-}
-
+    .selectedPanel {
+        flex: 1;
+        float: right;
+        /* Add some space between sidePanel and selectedPanel */
+    }
 </style>
 
 <body>
     <div class="container">
-        <div class="imageLeft"></div> 
+        <div class="imageLeft"></div>
         <div class="Titles">
             <div class="SecondTitle">
                 <h1>Explore Stockholm</h1>
@@ -34,7 +34,7 @@
                 <h2>Search for Restaurants, Museums, and many more sights!</h2>
             </div>
         </div>
-        <div class="imageRight"></div> 
+        <div class="imageRight"></div>
     </div>
 
     <div class="floatingBox">
@@ -51,7 +51,7 @@
 
     <div class="sidePanel">
         <h3>Search Results</h3>
-        
+
         <ul id="resultsList"></ul>
     </div>
     <div class="selectedPanel">
@@ -59,10 +59,11 @@
         <ul id="selectedList"></ul>
         <button onclick="Createroute()">Create Route</button>
     </div>
-    
+
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap"
-        async defer></script>
+        async defer>
+        </script>
     <script src="script.js"></script>
     </div>
 </body>

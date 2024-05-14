@@ -3,9 +3,9 @@ var infowindow;
 var selectedPlaces = [];
 
 //This function initializes maps, and starts with Stockholm as default. 
-function initializeMap(){
+function initializeMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 59.3293, lng: 18.0686}, 
+        center: { lat: 59.3293, lng: 18.0686 },
         zoom: 10
     });
 
@@ -33,13 +33,13 @@ function search() {
 
     var request = {
         query: inputText + ' in Stockholm',
-        fields: ['name', 'geometry', 'photos', 'rating'] 
+        fields: ['name', 'geometry', 'photos', 'rating']
     };
 
     var service = new google.maps.places.PlacesService(map);
-    service.textSearch(request, function(results, status) {
+    service.textSearch(request, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-            outputList.innerHTML = ""; 
+            outputList.innerHTML = "";
             for (var i = 0; i < results.length; i++) { //marker creation for the specific attraction.
                 createMarker(results[i]);
                 addResultToList(results[i]);
@@ -63,14 +63,14 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
 }
 
 function isSelected(place) {
-    return selectedPlaces.some(function(selectedPlace) {
+    return selectedPlaces.some(function (selectedPlace) {
         return selectedPlace.name === place.name;
     });
 }
@@ -103,7 +103,7 @@ function addResultToList(place) {
 
     listItem.appendChild(placeInfo);
 
-    listItem.onclick = function() {
+    listItem.onclick = function () {
         map.setCenter(place.geometry.location);
         map.setZoom(15);
         infowindow.setContent(place.name);
@@ -128,7 +128,7 @@ function addResultToList(place) {
 
 
 
-function removeButton(button){
+function removeButton(button) {
     button.remove(); // Remove the button from the DOM
 }
 
@@ -140,7 +140,7 @@ function addSelectedPlace(place) {
 function renderSelectedList() {
     var selectedList = document.getElementById("selectedList");
     selectedList.innerHTML = "";
-    selectedPlaces.forEach(function(place) {
+    selectedPlaces.forEach(function (place) {
         var listItem = document.createElement("li");
         listItem.classList.add("selectedListItem");
 
@@ -153,7 +153,7 @@ function renderSelectedList() {
 }
 
 //creates a route with the travelmode walking. 
-function Createroute(){
+function Createroute() {
     console.log("Button clicked!");
     if (selectedPlaces.length < 2) {
         alert('Select a minimum of two places!');
@@ -161,7 +161,7 @@ function Createroute(){
     }
 
     var waypoints = [];
-    selectedPlaces.forEach(function(place) {
+    selectedPlaces.forEach(function (place) {
         waypoints.push({
             location: place.geometry.location,
             stopover: true
@@ -182,7 +182,7 @@ function Createroute(){
         preserveViewport: true
     });
 
-    directionsService.route(request, function(response, status) {
+    directionsService.route(request, function (response, status) {
         if (status === 'OK') {
             directionsRenderer.setDirections(response);
         } else {
