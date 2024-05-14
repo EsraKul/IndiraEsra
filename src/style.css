@@ -176,6 +176,27 @@ button:hover {
     transition: left 0.3s ease;
 }
 
+.selectedPanel {
+    font: 400 normal 1 "Nanum Myeongjo", serif;
+    position: fixed;
+    margin-right: 20px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    right: 0; /* Align to the right */
+    width: 300px;
+    min-height: 200px; /* Set a minimum height */
+    height: auto; /* Adjust height based on content */
+    max-height: 70%; /* Limit the maximum height */
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+    border: 2px solid #000; /* Add a border */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for depth */
+    transition: right 0.3s ease;
+}
+
 .sidePanel {
     left: -500px; /* hides the side panel initially */
 }
