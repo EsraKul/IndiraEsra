@@ -1,5 +1,25 @@
-# IndiraEsra
+# Stockholm Tourism Planner 
 
-This project is built around either a webapplication or an app where the user can put in their areas of interest, such as history and food, and get a custom tourist attractions reccomended. 
+## Students: 
 
-This project will consist of a GUI written in javascript and react.  A backend that will be written in java or python. The backend takes in the written info from the front end processes it using NLP, and feeding this into the algorithm that uses an API to get recommended spots, filters through these and then sends it back to the frontend to get shown to the user.
+ESRA KULBAY - Ekulbay@kth.se
+INDIRA DUTTA - Indirad@kth.se
+
+## Programming language:
+
+HTML, CSS & Javascript. 
+
+## API
+
+GOOGLE MAPS API
+
+## Project Description:
+
+
+This website uses the Google Maps API for streamlined exploration of Stockholm's attractions. Users start by searching for specific places, which are marked on a map. They can add up to 25 attractions to a personalized list. With a click, users can optimize their route through all selected destinations. The map dynamically updates to display this optimized path. Finally, users can download a PDF summarizing their planned route. The website offers an intuitive and efficient platform for users to discover, plan, and navigate their Stockholm adventure.
+
+## How to use: 
+
+To use this web application, simply open the HTML file "landing.html" and click on "start exploring." Then, enter the desired attractions into the search bar and browse the list on the left side. Click "add" to include a selected attraction in your list. Once you've added all desired places, click "create route" on the right side. A "download route" option will appear; click to obtain a PDF summarizing all selected attractions.
+
+
