@@ -6,29 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stockholm Tourism</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
 </head>
-<style>
-    .container {
-        display: flex;
-    }
 
-    .sidePanel {
-        flex: 1;
-    }
-
-    .selectedPanel {
-        flex: 1;
-        float: right;
-        /* Add some space between sidePanel and selectedPanel */
-    }
-</style>
 
 <body>
     <div class="container">
         <div class="imageLeft"></div>
         <div class="Titles">
-            <div class="SecondTitle">
+            <div class="SecondTitle"> <!-- TITLE-->
                 <h1>Explore Stockholm</h1>
             </div>
             <div class="SecondSubtitle">
@@ -38,33 +24,36 @@
         <div class="imageRight"></div>
     </div>
 
-    <div class="floatingBox">
+    <div class="floatingBox"> <!-- Searchbox that sends input to javascript-->
         <div class="inputAndButton">
             <input type="text" id="searchInput" placeholder="What are you looking for?">
             <button onclick="search()">Search</button>
         </div>
 
-        <div id="mapDiv" style="display: none;">
+        <div id="mapDiv" style="display: none;"> <!-- map that appears after you search-->
             <div id="map"></div>
         </div>
     </div>
 
 
-    <div class="sidePanel">
+    <div class="sidePanel"> <!-- Sidepanel that has all the search results -->
         <h3>Search Results</h3>
 
         <ul id="resultsList"></ul>
     </div>
-    <div class="selectedPanel">
+    <div class="selectedPanel"> <!-- sidepanel that includes all the selectedplaces-->
         <h3>Selected Places</h3>
         <ul id="selectedList"></ul>
-        <button onclick="Createroute()">Create Route</button>
-        <button id="generatePDFBtn" style="display: none;" onclick="generatePDF()"> DOWNLOAD ROUTE  </button>
+        <button onclick="Createroute()">Create Route</button> <!-- button that creates an optimized route when clicked -->
+        <button id="generatePDFBtn" style="display: none;" onclick="generatePDF()"> DOWNLOAD ROUTE  </button> <!-- Button that lets you download a pdf file when clicked-->
     </div>
-
+    <!-- Script for javascript PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
+    <!-- API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap" async defer></script>
+   
+    <!-- JAVASCRIPT SCRIPT-->
     <script src="script.js"></script>
     </div>
 </body>

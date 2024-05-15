@@ -268,3 +268,17 @@ button:hover {
 .deleteButton:hover {
     background: #c82333;
 }
+
+.container {
+    display: flex;
+}
+
+.sidePanel {
+    flex: 1;
+}
+
+.selectedPanel {
+    flex: 1;
+    float: right;
+    
+}

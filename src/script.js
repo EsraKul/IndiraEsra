@@ -1,12 +1,15 @@
+
+//all the variables
 var map;
 var infowindow;
 var selectedPlaces = [];
-var directionsRenderer; // Declare directionsRenderer globally
+var directionsRenderer;
+var markers = [];
 window.jsPDF = window.jspdf.jsPDF;
 
 // This function initializes maps, and starts with Stockholm as default.
 function initializeMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), { //starts of as initializing a map in Stockholm. 
         center: { lat: 59.3293, lng: 18.0686 },
         zoom: 10
     });
@@ -18,14 +21,12 @@ function initializeMap() {
     });
 }
 
-
+// a function that makes the map appear when you search.
 function toggleContainer() {
     var container = document.querySelector('.container');
     if (container) {
         container.remove(); // Remove the container from the DOM
-    } else {
-        // Container has already been removed, ignore
-    }
+    } 
 }
 
 //Search function that makes the searches in Stockholm specifically and shows a sidepanel with suggestions. 
@@ -46,9 +47,10 @@ function search() {
     service.textSearch(request, function (results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             outputList.innerHTML = "";
+            
             for (var i = 0; i < results.length; i++) { //marker creation for the specific attraction.
                 createMarker(results[i]);
-                addResultToList(results[i]);
+                addResultToList(results[i]); //adds results to a list.
             }
             sidePanel.classList.add("show");
             selectedPanel.classList.add("show");
@@ -69,12 +71,15 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
+    markers.push(marker);   
+
     google.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
 }
 
+//a function for the selected places. 
 function isSelected(place) {
     return selectedPlaces.some(function (selectedPlace) {
         return selectedPlace.name === place.name;
@@ -138,11 +143,12 @@ function removeButton(button) {
     button.remove(); // Remove the button from the DOM
 }
 
-function addSelectedPlace(place) {
+function addSelectedPlace(place) { //add the selectedplaces to the list on the right side. 
     selectedPlaces.push(place);
     renderSelectedList();
 }
 
+//this function updates the selected list on the sidepanel to the right. 
 function renderSelectedList() {
     var selectedList = document.getElementById("selectedList");
     selectedList.innerHTML = "";
@@ -166,6 +172,7 @@ function renderSelectedList() {
     });
 }
 
+//delete the seelectedplace. 
 function deleteSelectedPlace(index) {
     selectedPlaces.splice(index, 1);
     renderSelectedList();
@@ -175,7 +182,9 @@ function deleteSelectedPlace(index) {
 
 // Creates a route with the travel mode walking
 function Createroute() {
+    
     console.log("Button clicked!");
+    clearMarkers();
     if (selectedPlaces.length < 2) {
         alert('Select a minimum of two places!');
         return;
@@ -203,12 +212,20 @@ function Createroute() {
         if (status === 'OK') {
             directionsRenderer.setDirections(response);
             document.getElementById("generatePDFBtn").style.display = "block";
+            //makes it so the map gets adapted to the markers when you create a route. 
+            if (selectedPlaces.length > 0) {
+                var bounds = new google.maps.LatLngBounds();
+                selectedPlaces.forEach(function (place) {
+                    bounds.extend(place.geometry.location);
+                });
+                map.fitBounds(bounds);
+            }
         } else {
             alert('Route Failed ' + status);
         }
     });
 }
-
+//generates a pdf with the routes in mind. 
 function generatePDF() {
     const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
@@ -222,4 +239,11 @@ function generatePDF() {
             });
 
     
+}
+//clears the other markers on the map when you create route. 
+function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
 }
