@@ -1,9 +1,10 @@
 var map;
 var infowindow;
 var selectedPlaces = [];
+var directionsRenderer; // Declare directionsRenderer globally
 window.jsPDF = window.jspdf.jsPDF;
 
-//This function initializes maps, and starts with Stockholm as default. 
+// This function initializes maps, and starts with Stockholm as default.
 function initializeMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 59.3293, lng: 18.0686 },
@@ -11,6 +12,10 @@ function initializeMap() {
     });
 
     infowindow = new google.maps.InfoWindow();
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        map: map,
+        preserveViewport: true
+    });
 }
 
 
@@ -141,19 +146,34 @@ function addSelectedPlace(place) {
 function renderSelectedList() {
     var selectedList = document.getElementById("selectedList");
     selectedList.innerHTML = "";
-    selectedPlaces.forEach(function (place) {
+    selectedPlaces.forEach(function (place, index) {
         var listItem = document.createElement("li");
         listItem.classList.add("selectedListItem");
 
         var placeName = document.createElement("span");
         placeName.textContent = place.name;
 
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("deleteButton");
+        deleteButton.onclick = function () {
+            deleteSelectedPlace(index);
+        };
+
         listItem.appendChild(placeName);
+        listItem.appendChild(deleteButton);
         selectedList.appendChild(listItem);
     });
 }
 
-//creates a route with the travelmode walking. 
+function deleteSelectedPlace(index) {
+    selectedPlaces.splice(index, 1);
+    renderSelectedList();
+    directionsRenderer.set('directions', null); // Clear the existing route
+}
+
+
+// Creates a route with the travel mode walking
 function Createroute() {
     console.log("Button clicked!");
     if (selectedPlaces.length < 2) {
@@ -161,13 +181,13 @@ function Createroute() {
         return;
     }
 
-    var waypoints = [];
-    selectedPlaces.forEach(function (place) {
-        waypoints.push({
-            location: place.geometry.location,
-            stopover: true
-        });
-    });
+    // Clear the existing route from the map
+    directionsRenderer.set('directions', null);
+
+    var waypoints = selectedPlaces.map(place => ({
+        location: place.geometry.location,
+        stopover: true
+    }));
 
     var request = {
         origin: waypoints.shift().location,
@@ -178,10 +198,6 @@ function Createroute() {
     };
 
     var directionsService = new google.maps.DirectionsService();
-    var directionsRenderer = new google.maps.DirectionsRenderer({
-        map: map,
-        preserveViewport: true
-    });
 
     directionsService.route(request, function (response, status) {
         if (status === 'OK') {
@@ -192,6 +208,7 @@ function Createroute() {
         }
     });
 }
+
 function generatePDF() {
     const { jsPDF } = window.jspdf;
             const doc = new jsPDF();

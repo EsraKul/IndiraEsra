@@ -154,6 +154,8 @@ button:hover {
 }
 
 .selectedPanel {
+    flex: 1;
+    float: right;
     font: 400 normal 1 "Nanum Myeongjo", serif;
     position: fixed;
     margin-right: 20px;
@@ -244,4 +246,25 @@ button:hover {
     margin: 20px auto;
     /* Adjusted margin for better alignment */
     display: block;
+}
+.selectedListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.deleteButton {
+    font: 700 12px/1 "Montserrat", sans-serif;
+    padding: 5px 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.deleteButton:hover {
+    background: #c82333;
 }
