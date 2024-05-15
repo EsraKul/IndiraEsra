@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stockholm Tourism</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
 </head>
 <style>
     .container {
@@ -58,12 +59,12 @@
         <h3>Selected Places</h3>
         <ul id="selectedList"></ul>
         <button onclick="Createroute()">Create Route</button>
+        <button id="generatePDFBtn" style="display: none;" onclick="generatePDF()"> DOWNLOAD ROUTE  </button>
     </div>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap"
-        async defer>
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8S6HJq3Iw48pV49HB2WveJmk3XZ2Fsh8&libraries=places&callback=initializeMap" async defer></script>
     <script src="script.js"></script>
     </div>
 </body>

@@ -1,6 +1,7 @@
 var map;
 var infowindow;
 var selectedPlaces = [];
+window.jsPDF = window.jspdf.jsPDF;
 
 //This function initializes maps, and starts with Stockholm as default. 
 function initializeMap() {
@@ -185,8 +186,23 @@ function Createroute() {
     directionsService.route(request, function (response, status) {
         if (status === 'OK') {
             directionsRenderer.setDirections(response);
+            document.getElementById("generatePDFBtn").style.display = "block";
         } else {
             alert('Route Failed ' + status);
         }
     });
+}
+function generatePDF() {
+    const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const yPos = 10;
+            doc.text("Stockholm Tourism plan", 100, yPos);
+            doc.save("Route.pdf");
+            doc.text(StringArray.toString(selectedPlaces), 10, 100);
+            selectedPlaces.forEach(function(place) {
+                doc.text(place.name, 10, yPos);
+                yPos += 10;
+            });
+
+    
 }
