@@ -1,3 +1,4 @@
+/* Body element styling */
 body {
     margin: 0;
     padding: 0;
@@ -5,44 +6,48 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
-    /* Ensure the background covers the entire viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     color: #feffff;
     z-index: -1;
-    font-family: "Nanum Myeongjo", serif; /* Font family */
+    font-family: "Nanum Myeongjo", serif;
 }
 
+/* Landing page container styling */
 .landing-page {
-    text-align: center; /* Center align text */
-    margin-top: 1%; /* Add margin to top */
-    animation: slideUp 1s ease forwards; /* Apply slide-up animation */
+    text-align: center;
+    margin-top: 1%; 
+    animation: slideUp 1s ease forwards;
 }
 
+/* Dotted line styling */
 .dotted-line {
-    border: 2px dashed white; /* Dashed line with 2px thickness and white color */
-    margin: 0 auto 35px; /* Auto margins for horizontal centering and bottom spacing */
-    width: 80%; /* Adjusted width */
+    border: 2px dashed white; 
+    margin: 0 auto 35px;
+    width: 80%;
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center; 
 }
 
+/* Button styling */
 button {
     padding: 10px 20px;
     background-color: #feffff;
     color: rgba(0, 0, 0, 0.799);
-    font-family: "Nanum Myeongjo", serif; /* Font family */
+    font-family: "Nanum Myeongjo", serif; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 2; /* Ensure button appears above background */
+    z-index: 2; 
 }
 
+/* Button hover effect */
 button:hover {
     background-color: #ffffff;
 }
 
+/* Slide-up animation keyframes */
 @keyframes slideUp {
     from {
         transform: translateY(100%);
