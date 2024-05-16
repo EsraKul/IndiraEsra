@@ -9,7 +9,6 @@ html {
     height: 100%;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    /* Use Montserrat font */
     opacity: 0;
     animation: fadeIn 1s ease forwards;
     background-image: linear-gradient(to bottom, #ADD8E6, #FFF8DC);
@@ -26,12 +25,14 @@ html {
     }
 }
 
+/* Container styling for centered layout */
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Styling for images on the left and right */
 .imageLeft,
 .imageRight {
     width: 100px;
@@ -40,38 +41,40 @@ html {
     background-position: center;
 }
 
+/* Specific styling for the left image */
 .imageLeft {
     margin-right: 20px;
     background-image: url('../images/stockholm 1.png');
 }
 
+/* Specific styling for the right image */
 .imageRight {
     margin-left: 20px;
     background-image: url('../images/stockholm 2.webp');
 }
 
+/* Titles section styling */
 .Titles {
     text-align: center;
 }
 
+/* Styling for the secondary title */
 .SecondTitle {
     margin-top: 60px;
     color: #333;
-    /* Darkened the color for better readability */
     font: 700 35px/1 "Cinzel", serif;
 }
 
+/* Styling for the secondary subtitle */
 .SecondSubtitle {
     margin-top: -40px;
     color: #666;
-    /* Darkened the color for better readability */
     font: 400 normal 1 "Nanum Myeongjo", serif;
 }
 
 /* Floating box styling */
 .floatingBox {
     background: rgba(255, 255, 255, 0.9);
-    /* Increased opacity for better contrast */
     padding: 60px 100px;
     border-radius: 10px;
     text-align: center;
@@ -80,7 +83,6 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Added box shadow for depth */
 }
 
 /* Input and button container styling */
@@ -88,15 +90,12 @@ html {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    /* Increased margin for better spacing */
 }
 
 /* Search input styling */
 #searchInput {
     padding: 12px;
-    /* Increased padding for better usability */
     border: 1px solid #ddd;
-    /* Softened the border color */
     width: 300px;
     box-sizing: border-box;
 }
@@ -104,37 +103,33 @@ html {
 /* Button styling */
 button {
     font: 700 16px/1 "Montserrat", sans-serif;
-    /* Use Montserrat font */
     padding: 12px 30px;
     background: #007bff;
-    /* Changed button color to a more vibrant blue */
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    /* Added transition for smoother hover effect */
 }
 
 /* Button hover effect */
 button:hover {
     background: #0056b3;
-    /* Darkened the hover color */
 }
 
 /* Results container styling */
 #results {
     margin-top: 40px;
-    /* Increased spacing from the top */
 }
 
+/* Map container styling */
 #map {
     height: 400px;
     width: 100%;
     border: 1px solid #ddd;
-    /* Softened the border color */
 }
 
+/* Side panel styling */
 .sidePanel {
     font: 400 normal 1 "Nanum Myeongjo", serif;
     position: fixed;
@@ -142,17 +137,17 @@ button:hover {
     width: 300px;
     height: 100%;
     background-color: #f8f9fa;
-    /* Changed background color to a lighter shade */
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
     transition: left 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Added box shadow for depth */
     border-right: 1px solid #ddd;
-    /* Added border for separation */
+    left: -500px;
+    flex: 1;
 }
 
+/* Selected panel styling */
 .selectedPanel {
     flex: 1;
     float: right;
@@ -161,92 +156,77 @@ button:hover {
     margin-right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    /* Center vertically */
     right: 0;
-    /* Align to the right */
     width: 300px;
     min-height: 200px;
-    /* Set a minimum height */
     height: auto;
-    /* Adjust height based on content */
     max-height: 70%;
-    /* Limit the maximum height */
     background-color: #f8f9fa;
     padding: 20px;
     overflow-y: auto;
     z-index: 1000;
     transition: left 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Added box shadow for depth */
     border-right: 1px solid #ddd;
-    /* Added border for separation */
-}
-
-.sidePanel {
-    left: -500px;
-    /* hides the side panel initially */
-}
-
-.selectedPanel {
     right: -500px;
-    /* hides the selected panel initially */
+    flex: 1;
+    float: right;
 }
 
+/* Styling for the visible state of selectedPanel */
 .selectedPanel.show {
-    /*selectedPanel becomes visible*/
     right: 0;
 }
 
+/* Styling for the visible state of sidePanel */
 .sidePanel.show {
-    /*sidepanel becomes visible*/
     left: 0;
 }
 
+/* Header styling for sidePanel and selectedPanel */
 .sidePanel h3,
 .selectedPanel h3 {
     font: 500 normal 1 "Montserrat", sans-serif;
-    /* Use Montserrat font */
     margin: 0;
     position: sticky;
     top: 0;
     background-color: #007bff;
-    /* Changed background color to match the button color */
     color: white;
     padding: 20px;
     border-bottom: 1px solid #ddd;
-    /* Added border for separation */
 }
 
+/* List styling for sidePanel and selectedPanel */
 .sidePanel ul,
 .selectedPanel ul {
     list-style-type: none;
     padding: 0;
     margin: 20px 0;
-    /* Adjusted margin for better spacing */
 }
 
+/* List item styling for sidePanel and selectedPanel */
 .sidePanel li,
 .selectedPanel li {
     margin-bottom: 10px;
     cursor: pointer;
     padding: 15px;
-    /* Increased padding for better clickability */
     border-radius: 5px;
     background-color: #f2f2f2;
-    /* Changed background color to a lighter shade */
 }
 
+/* Hover effect for list items in sidePanel and selectedPanel */
 .sidePanel li:hover,
 .selectedPanel li:hover {
     background-color: #e5e5e5;
-    /* Darkened the hover color */
 }
 
+/* Button styling within selectedPanel */
 .selectedPanel button {
     margin: 20px auto;
-    /* Adjusted margin for better alignment */
     display: block;
 }
+
+/* Selected list item styling */
 .selectedListItem {
     display: flex;
     justify-content: space-between;
@@ -255,6 +235,7 @@ button:hover {
     border-bottom: 1px solid #ddd;
 }
 
+/* Delete button styling */
 .deleteButton {
     font: 700 12px/1 "Montserrat", sans-serif;
     padding: 5px 10px;
@@ -265,20 +246,12 @@ button:hover {
     border-radius: 3px;
 }
 
+/* Hover effect for delete button */
 .deleteButton:hover {
     background: #c82333;
 }
 
+/* Flex container styling */
 .container {
     display: flex;
-}
-
-.sidePanel {
-    flex: 1;
-}
-
-.selectedPanel {
-    flex: 1;
-    float: right;
-    
 }

@@ -1,3 +1,4 @@
+/* Body element styling */
 body {
     margin: 0;
     padding: 0;
@@ -5,44 +6,46 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
-    /* Ensure the background covers the entire viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     color: #feffff;
-    z-index: -1;
-    font-family: "Nanum Myeongjo", serif; /* Font family */
+    font-family: Arial, sans-serif; /* Changed font to a sans-serif for better readability */
 }
 
+/* Landing page container styling */
 .landing-page {
-    text-align: center; /* Center align text */
-    margin-top: 1%; /* Add margin to top */
-    animation: slideUp 1s ease forwards; /* Apply slide-up animation */
+    text-align: center;
+    margin-top: 5%; /* Increased margin-top for better spacing */
+    animation: slideUp 1s ease forwards;
 }
 
+/* Dotted line styling */
 .dotted-line {
-    border: 2px dashed white; /* Dashed line with 2px thickness and white color */
-    margin: 0 auto 35px; /* Auto margins for horizontal centering and bottom spacing */
-    width: 80%; /* Adjusted width */
-    display: flex;
-    justify-content: center; /* Center horizontally */
+    border: 2px dashed white;
+    margin: 0 auto 35px;
+    width: 80%;
 }
 
+/* Button styling */
 button {
-    padding: 10px 20px;
+    padding: 15px 30px; /* Increased padding for better button size */
     background-color: #feffff;
     color: rgba(0, 0, 0, 0.799);
-    font-family: "Nanum Myeongjo", serif; /* Font family */
+    font-family: Arial, sans-serif;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Increased border-radius for a rounded button */
     cursor: pointer;
-    z-index: 2; /* Ensure button appears above background */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
+/* Button hover effect */
 button:hover {
     background-color: #ffffff;
 }
 
+/* Slide-up animation keyframes */
 @keyframes slideUp {
     from {
         transform: translateY(100%);
