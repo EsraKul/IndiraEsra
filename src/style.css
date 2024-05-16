@@ -61,15 +61,15 @@ html {
 /* Styling for the secondary title */
 .SecondTitle {
     margin-top: 60px;
-    color: #333;
-    font: 700 35px/1 "Cinzel", serif;
+    color:#333;
+    font: 700 30px/1 'Cinzel', serif;;
 }
 
 /* Styling for the secondary subtitle */
 .SecondSubtitle {
     margin-top: -40px;
-    color: #666;
-    font: 400 normal 1 "Nanum Myeongjo", serif;
+    color:  #666;
+    font: 400 20px/1 'Nanum Myeongjo', serif;
 }
 
 /* Floating box styling */

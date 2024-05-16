@@ -1,3 +1,7 @@
+/* Importing a web font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
 /* Body element styling */
 body {
     margin: 0;
@@ -10,14 +14,27 @@ body {
     justify-content: center;
     align-items: center;
     color: #feffff;
-    font-family: Arial, sans-serif; /* Changed font to a sans-serif for better readability */
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Landing page container styling */
 .landing-page {
     text-align: center;
-    margin-top: 5%; /* Increased margin-top for better spacing */
+    margin-top: 5%;
     animation: slideUp 1s ease forwards;
+}
+
+/* Heading styling */
+.landing-page h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.landing-page h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 /* Dotted line styling */
@@ -29,20 +46,22 @@ body {
 
 /* Button styling */
 button {
-    padding: 15px 30px; /* Increased padding for better button size */
+    padding: 15px 30px;
     background-color: #feffff;
     color: rgba(0, 0, 0, 0.799);
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
     border: none;
-    border-radius: 25px; /* Increased border-radius for a rounded button */
+    border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 /* Button hover effect */
 button:hover {
-    background-color: #ffffff;
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
 }
 
 /* Slide-up animation keyframes */
@@ -51,7 +70,6 @@ button:hover {
         transform: translateY(100%);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
