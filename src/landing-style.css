@@ -10,36 +10,34 @@ body {
     justify-content: center;
     align-items: center;
     color: #feffff;
-    z-index: -1;
-    font-family: "Nanum Myeongjo", serif;
+    font-family: Arial, sans-serif; /* Changed font to a sans-serif for better readability */
 }
 
 /* Landing page container styling */
 .landing-page {
     text-align: center;
-    margin-top: 1%; 
+    margin-top: 5%; /* Increased margin-top for better spacing */
     animation: slideUp 1s ease forwards;
 }
 
 /* Dotted line styling */
 .dotted-line {
-    border: 2px dashed white; 
+    border: 2px dashed white;
     margin: 0 auto 35px;
     width: 80%;
-    display: flex;
-    justify-content: center; 
 }
 
 /* Button styling */
 button {
-    padding: 10px 20px;
+    padding: 15px 30px; /* Increased padding for better button size */
     background-color: #feffff;
     color: rgba(0, 0, 0, 0.799);
-    font-family: "Nanum Myeongjo", serif; 
+    font-family: Arial, sans-serif;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Increased border-radius for a rounded button */
     cursor: pointer;
-    z-index: 2; 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 /* Button hover effect */
