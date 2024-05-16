@@ -182,7 +182,6 @@ function deleteSelectedPlace(index) {
 
 // Creates a route with the travel mode walking
 function Createroute() {
-    
     console.log("Button clicked!");
     clearMarkers();
     if (selectedPlaces.length < 2) {
@@ -193,14 +192,14 @@ function Createroute() {
     // Clear the existing route from the map
     directionsRenderer.set('directions', null);
 
-    var waypoints = selectedPlaces.map(place => ({
+    var waypoints = selectedPlaces.slice(1, -1).map(place => ({
         location: place.geometry.location,
         stopover: true
     }));
 
     var request = {
-        origin: waypoints.shift().location,
-        destination: waypoints.pop().location,
+        origin: selectedPlaces[0].geometry.location,
+        destination: selectedPlaces[selectedPlaces.length - 1].geometry.location,
         waypoints: waypoints,
         optimizeWaypoints: true,
         travelMode: 'WALKING'
@@ -211,8 +210,9 @@ function Createroute() {
     directionsService.route(request, function (response, status) {
         if (status === 'OK') {
             directionsRenderer.setDirections(response);
+            optimizedOrder = response.routes[0].waypoint_order; // Store the optimized order
             document.getElementById("generatePDFBtn").style.display = "block";
-            //makes it so the map gets adapted to the markers when you create a route. 
+            // Makes it so the map gets adapted to the markers when you create a route.
             if (selectedPlaces.length > 0) {
                 var bounds = new google.maps.LatLngBounds();
                 selectedPlaces.forEach(function (place) {
@@ -228,18 +228,31 @@ function Createroute() {
 //generates a pdf with the routes in mind. 
 function generatePDF() {
     const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const yPos = 10;
-            doc.text("Stockholm Tourism plan", 100, yPos);
-            doc.save("Route.pdf");
-            doc.text(StringArray.toString(selectedPlaces), 10, 100);
-            selectedPlaces.forEach(function(place) {
-                doc.text(place.name, 10, yPos);
-                yPos += 10;
-            });
+    const doc = new jsPDF();
+    let yPos = 20; 
+    doc.text("Stockholm Tourism Plan", 105, 10, null, null, 'center');
 
+    if (optimizedOrder.length > 0) {
+        doc.text(selectedPlaces[0].name, 10, yPos);
+        yPos += 10;
+        optimizedOrder.forEach(function (index) {
+            var place = selectedPlaces[index + 1]; 
+            doc.text(place.name, 10, yPos);
+            yPos += 10;
+        });
+
+        doc.text(selectedPlaces[selectedPlaces.length - 1].name, 10, yPos);
+        yPos += 10;
+    } else {
     
+        selectedPlaces.forEach(function (place) {
+            doc.text(place.name, 10, yPos);
+            yPos += 10;
+        });
+    }
+    doc.save("Route.pdf");
 }
+
 //clears the other markers on the map when you create route. 
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
